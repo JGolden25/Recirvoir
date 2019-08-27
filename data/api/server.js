@@ -68,7 +68,7 @@ server.get('/api/notes/:id', (request, response) => {
 /// ---- Create Note Endpoint ----
 server.post('/api/notes', (request, response) => {
     // Deconstruct Request Body
-    let { title, textBody, recipetime, tags, user } = request.body;
+    let { title, textBody, recipetime, ingredients, steps, tags, user } = request.body;
 
     // Validation
     if ( !title || !textBody /*|| !recipetime*/ ) {
@@ -87,8 +87,16 @@ server.post('/api/notes', (request, response) => {
         recipetime = "";
     }
 
+    if ( steps ) {
+        updatedNote.steps = steps;
+    }
+
+    if ( ingredients ) {
+        updatedNote.ingredients = ingredients;
+    }
+
     // Construct New Note Object
-    const newNote = { title, textBody, recipetime, tags, user };
+    const newNote = { title, textBody, recipetime, ingredients, steps, tags, user };
 
     // Database Promise Methods
     notesDb.insert(newNote)
@@ -133,7 +141,7 @@ server.put('/api/notes/:id', (request, response) => {
     const _id = request.params.id;
 
     // Deconstruct Request Body
-    let { title, textBody, recipetime, tags, user } = request.body;
+    let { title, textBody, recipetime, ingredients, steps, tags, user } = request.body;
 
     // Construct Updated Project Body
     let updatedNote = {};
@@ -144,6 +152,14 @@ server.put('/api/notes/:id', (request, response) => {
 
     if ( recipetime ) {
         updatedNote.recipetime = recipetime;
+    }
+
+    if ( steps ) {
+        updatedNote.steps = steps;
+    }
+
+    if ( ingredients ) {
+        updatedNote.ingredients = ingredients;
     }
 
     if ( textBody ) {

@@ -6,9 +6,9 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       // Inserts seed entries
       return knex('notes').insert([
-        { title: 'Sample Note 1', textBody: 'This is a sample note for seeding purposes.', recipetime: 'sample time.' },
-        { title: 'Sample Note 2', textBody: 'This is a second sample note for seeding purposes.', recipetime: 'sample time.' },
-        { title: 'Sample Note 3', textBody: 'This is a third sample note for seeding purposes.', recipetime: 'sample time.' }
+        { title: 'Sample Note 1', textBody: 'This is a sample note for seeding purposes.', recipetime: 'sample time.', ingredients: 'sample ingredient.', steps: 'sample step.' },
+        { title: 'Sample Note 2', textBody: 'This is a second sample note for seeding purposes.', recipetime: 'sample time.', ingredients: 'sample ingredient.', steps: 'sample step.' },
+        { title: 'Sample Note 3', textBody: 'This is a third sample note for seeding purposes.', recipetime: 'sample time.', ingredients: 'sample ingredient.', steps: 'sample step.' }
       ]);
     });
 };
