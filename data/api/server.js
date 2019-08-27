@@ -88,11 +88,11 @@ server.post('/api/notes', (request, response) => {
     }
 
     if ( ingredients ) {
-        updatedNote.ingredients = ingredients;
+        ingredients = "";
     }
 
     if ( steps ) {
-        updatedNote.steps = steps;
+        steps = "";
     }
 
 
