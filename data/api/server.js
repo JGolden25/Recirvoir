@@ -87,13 +87,14 @@ server.post('/api/notes', (request, response) => {
         recipetime = "";
     }
 
+    if ( ingredients ) {
+        updatedNote.ingredients = ingredients;
+    }
+
     if ( steps ) {
         updatedNote.steps = steps;
     }
 
-    if ( ingredients ) {
-        updatedNote.ingredients = ingredients;
-    }
 
     // Construct New Note Object
     const newNote = { title, textBody, recipetime, ingredients, steps, tags, user };
