@@ -195,4 +195,6 @@ server.put('/api/notes/:id', (request, response) => {
 
 
 // --- Export Server ---
+const port = process.env.PORT || 4001;
+app.listen(port);
 module.exports = server;
